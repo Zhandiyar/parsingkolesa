@@ -1,6 +1,6 @@
 package kz.kolesa.parsingkolesa.service;
 
-import kz.kolesa.parsingkolesa.model.dao.Car;
+import kz.kolesa.parsingkolesa.model.dao.CarEntity;
 import kz.kolesa.parsingkolesa.model.dto.CarDto;
 import kz.kolesa.parsingkolesa.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,15 +15,21 @@ public class CarServiceImpl implements CarService {
     private final CarRepository carRepository;
 
     @Override
-    public void save(Car car) {
+    public void save(CarDto carDto) {
+        CarEntity car = CarEntity.builder()
+                .title(carDto.getTitle())
+                .description(carDto.getDescription())
+                .location(carDto.getLocation())
+                .price(carDto.getPrice())
+                .build();
         carRepository.save(car);
     }
 
 
     @Override
     public boolean isExist(String carTitle) {
-        List<Car> cars = carRepository.findAll();
-        for (Car k : cars){
+        List<CarEntity> cars = carRepository.findAll();
+        for (CarEntity k : cars){
             if (k.getTitle().equals(carTitle)) {
                 return true;
             }
@@ -32,7 +38,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<Car> getAllCar() {
+    public List<CarEntity> getAllCars() {
         return carRepository.findAll();
     }
 }

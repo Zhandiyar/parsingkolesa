@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Table(name = "car")
-public class Car {
+public class CarEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
