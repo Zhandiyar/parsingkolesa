@@ -9,8 +9,8 @@ import java.util.List;
 
 @Service
 public interface CarService {
-    void saveCar(CarDto carDto);
-    void saveCarDescription(CarDescriptionDto carDescriptionDto);
+    void save(CarDto carDto);
+    void save(CarDescriptionDto carDescriptionDto);
     public boolean isExist(String carTitle);
     List<CarEntity> getAllCars();
 }

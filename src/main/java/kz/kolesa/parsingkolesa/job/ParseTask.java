@@ -1,10 +1,8 @@
 package kz.kolesa.parsingkolesa.job;
 
-import kz.kolesa.parsingkolesa.model.dao.CarEntity;
 import kz.kolesa.parsingkolesa.model.dto.CarDescriptionDto;
 import kz.kolesa.parsingkolesa.model.dto.CarDto;
 import kz.kolesa.parsingkolesa.service.CarService;
-import kz.kolesa.parsingkolesa.service.CarServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -47,7 +45,7 @@ public class ParseTask {
                         .location(location)
                         .price(price)
                         .build();
-                kolesaService.saveCar(carDto);
+                kolesaService.save(carDto);
                 Element link = div.selectFirst("a.a-card__link");
                 String linkUrl = link.absUrl("href");
                 Document newDocument = Jsoup.connect(linkUrl).get();
@@ -74,8 +72,9 @@ public class ParseTask {
                         .customsCleared(customsCleared)
                         .description(detailedDescription)
                         .sellerComment(sellerComment)
+                        .car(carDto)
                         .build();
-                kolesaService.saveCarDescription(carDescriptionDto);
+                kolesaService.save(carDescriptionDto);
                 System.out.println("Заголовок: " + title);
                 System.out.println("Описание: " + description);
                 System.out.println("Цена: " + price);

@@ -21,4 +21,5 @@ public class CarDescriptionDto {
     private String customsCleared;
     private String description;
     private String sellerComment;
+    private CarDto car;
 }
