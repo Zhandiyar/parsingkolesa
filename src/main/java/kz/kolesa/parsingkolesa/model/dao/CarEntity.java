@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "car")
+@Table(name = "cars")
 public class CarEntity {
 
     @Id
