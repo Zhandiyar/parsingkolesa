@@ -3,21 +3,29 @@ package kz.kolesa.parsingkolesa.model.dao;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "car_description")
-public class CarDescriptionEntity {
+@Table(name = "cars")
+public class CarsEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "car_id", nullable = false)
-    private CarEntity car;
+    @Column(name = "brand", nullable = false)
+    private String brand;
+
+    @Column(name = "price", nullable = false)
+    private String price;
+
+    @Column(name = "location", nullable = false)
+    private String location;
 
     @Column(name = "generation", nullable = false)
     private String generation;
@@ -42,6 +50,12 @@ public class CarDescriptionEntity {
 
     @Column(name = "customs_cleared", nullable = false)
     private String customsCleared;
+
+    @Column(name = "link_car", nullable = false)
+    private String linkCar;
+
+    @Column(name = "links_image")
+    private String linksImage;
 
     @Column(name = "description")
     private String description;

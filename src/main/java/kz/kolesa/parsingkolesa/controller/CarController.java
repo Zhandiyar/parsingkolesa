@@ -1,6 +1,6 @@
 package kz.kolesa.parsingkolesa.controller;
 
-import kz.kolesa.parsingkolesa.model.dao.CarEntity;
+import kz.kolesa.parsingkolesa.model.dao.CarsEntity;
 import kz.kolesa.parsingkolesa.service.CarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ public class CarController {
     private final CarService carService;
 
     @GetMapping(value = "/cars")
-    public List<CarEntity> getAllCar() {
+    public List<CarsEntity> getAllCar() {
         return carService.getAllCars();
     }
 }

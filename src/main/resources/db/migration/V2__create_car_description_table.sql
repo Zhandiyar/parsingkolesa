@@ -1,7 +1,7 @@
 CREATE TABLE car_description (
      id BIGSERIAL PRIMARY KEY,
      car_id BIGINT,
-     generation varchar(255) NOT NULL,
+     title varchar(255) NOT NULL,
      body varchar(255) NOT NULL,
      engine_volume varchar(255) NOT NULL,
      transmission varchar(255) NOT NULL,

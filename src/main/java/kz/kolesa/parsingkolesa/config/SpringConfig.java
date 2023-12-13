@@ -1,6 +1,7 @@
 package kz.kolesa.parsingkolesa.config;
 
 import kz.kolesa.parsingkolesa.mapper.CarMapper;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -10,8 +11,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class SpringConfig {
 
     @Bean
-    public CarMapper modelMapper(){
-        return new CarMapper();
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
     }
 
 }
